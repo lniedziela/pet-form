@@ -1,0 +1,15 @@
+package com.softserveinc.repository;
+
+import com.softserveinc.model.user.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+
+    Optional<User> findUserByUsernameIgnoreCase(String username);
+
+    boolean existsByUsernameIgnoreCase(String username);
+}
