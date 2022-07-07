@@ -45,4 +45,8 @@ public class UserService implements UserDetailsService {
             return Optional.of(userMapper.map(savedUser));
         }
     }
+
+    public Role getRoleOfLoggedUser(String username) {
+        return userRepository.findUserByUsernameIgnoreCase(username).get().getRole();
+    }
 }
