@@ -35,6 +35,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers("/register").permitAll()
                 .anyRequest().denyAll()
                 .and()
+                .formLogin().permitAll()
+                .and()
+                .logout().permitAll()
+                .and()
                 .csrf().disable() // disabling CSRF will allow sending POST request using Postman
                 .httpBasic(); // enables basic auth.
     }
