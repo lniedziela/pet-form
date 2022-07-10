@@ -1,8 +1,8 @@
 package com.softserveinc.service;
 
-import com.softserveinc.model.Form;
 import com.softserveinc.model.Pet;
 import com.softserveinc.model.Type;
+import com.softserveinc.model.form.Form;
 import com.softserveinc.model.user.User;
 import com.softserveinc.repository.FormRepository;
 import com.softserveinc.repository.PetRepository;

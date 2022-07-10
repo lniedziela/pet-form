@@ -22,7 +22,7 @@ public class PetController {
         return petService.listAllPetTypes();
     }
 
-    @PostMapping("/form")
+    @PostMapping("/pet")
     @ResponseStatus(HttpStatus.CREATED)
     public Pet createPet(@RequestBody Pet pet) {
         return petService.createPet(pet);
