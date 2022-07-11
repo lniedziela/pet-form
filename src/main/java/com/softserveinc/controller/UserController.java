@@ -24,7 +24,7 @@ public class UserController {
     }
 
     @GetMapping("/role")
-    public Role getRole(String username) {
-        return userService.getRoleOfLoggedUser(username);
+    public Role getRole() {
+        return userService.getRoleOfLoggedUser();
     }
 }

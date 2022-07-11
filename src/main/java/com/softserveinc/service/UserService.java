@@ -1,10 +1,12 @@
 package com.softserveinc.service;
 
 import com.softserveinc.model.user.Role;
+import com.softserveinc.model.user.User;
 import com.softserveinc.model.user.UserMapper;
 import com.softserveinc.model.user.dto.UserRequest;
 import com.softserveinc.model.user.dto.UserResponse;
 import com.softserveinc.repository.UserRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -46,7 +48,8 @@ public class UserService implements UserDetailsService {
         }
     }
 
-    public Role getRoleOfLoggedUser(String username) {
-        return userRepository.findUserByUsernameIgnoreCase(username).get().getRole();
+    public Role getRoleOfLoggedUser() {
+        var loggedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return loggedUser.getRole();
     }
 }
