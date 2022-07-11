@@ -42,6 +42,7 @@ public class UserService implements UserDetailsService {
         } else {
             var user = userMapper.map(userRequest);
             user.setRole(Role.EMPLOYEE);
+            user.setManagerId(1L);
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             var savedUser = userRepository.save(user);
             return Optional.of(userMapper.map(savedUser));

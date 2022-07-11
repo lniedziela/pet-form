@@ -24,6 +24,8 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Form> forms;
 
+    private Long managerId;
+
     public User() {
     }
 
@@ -91,6 +93,14 @@ public class User implements UserDetails {
 
     public void setForms(List<Form> forms) {
         this.forms = forms;
+    }
+
+    public Long getManagerId() {
+        return managerId;
+    }
+
+    public void setManagerId(Long managerId) {
+        this.managerId = managerId;
     }
 
     @Override

@@ -31,6 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers(HttpMethod.POST, "/pet").hasAnyRole(Role.EMPLOYEE.name())
                 .mvcMatchers(HttpMethod.POST, "/form").hasAnyRole(Role.EMPLOYEE.name())
                 .mvcMatchers(HttpMethod.GET, "/forms").hasAnyRole(Role.MANAGER.name())
+                .mvcMatchers(HttpMethod.PUT, "/status").hasAnyRole(Role.MANAGER.name())
                 .mvcMatchers(HttpMethod.GET, "/role").permitAll()
                 .mvcMatchers("/register").permitAll()
                 .anyRequest().denyAll()
